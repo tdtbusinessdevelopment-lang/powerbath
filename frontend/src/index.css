@@ -1,0 +1,5 @@
+/* Cleaned up default Vite styles to prevent layout constraints */
+body {
+  margin: 0;
+  padding: 0;
+}
