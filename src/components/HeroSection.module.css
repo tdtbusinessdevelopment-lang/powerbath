@@ -1,0 +1,212 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Placeholder gradient background — replace with actual photo later */
+  background: linear-gradient(
+    160deg,
+    #0d1b2a 0%,
+    #1a3a5c 35%,
+    #1e5a8e 70%,
+    #0d1b2a 100%
+  );
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* When user adds a photo, uncomment this and set the URL */
+/* .hero {
+  background-image: url('/images/hero-bg.jpg');
+} */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(13, 27, 42, 0.75) 0%,
+    rgba(26, 58, 92, 0.55) 50%,
+    rgba(13, 27, 42, 0.8) 100%
+  );
+  z-index: 1;
+}
+
+/* ── Animated Bubbles ── */
+.bubbles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(79, 195, 247, 0.35);
+  animation: floatUp linear infinite;
+  opacity: 0;
+}
+
+.bubble1  { width: 60px;  height: 60px;  left: 10%;  animation-duration: 9s;  animation-delay: 0s;   bottom: -80px; }
+.bubble2  { width: 40px;  height: 40px;  left: 25%;  animation-duration: 11s; animation-delay: 2s;   bottom: -80px; }
+.bubble3  { width: 80px;  height: 80px;  left: 40%;  animation-duration: 8s;  animation-delay: 1s;   bottom: -100px; }
+.bubble4  { width: 30px;  height: 30px;  left: 55%;  animation-duration: 13s; animation-delay: 3.5s; bottom: -80px; }
+.bubble5  { width: 50px;  height: 50px;  left: 65%;  animation-duration: 10s; animation-delay: 0.5s; bottom: -80px; }
+.bubble6  { width: 70px;  height: 70px;  left: 80%;  animation-duration: 12s; animation-delay: 2.5s; bottom: -100px; }
+.bubble7  { width: 25px;  height: 25px;  left: 90%;  animation-duration: 7s;  animation-delay: 1.5s; bottom: -80px; }
+.bubble8  { width: 45px;  height: 45px;  left: 5%;   animation-duration: 10s; animation-delay: 4s;   bottom: -80px; }
+
+@keyframes floatUp {
+  0%   { transform: translateY(0)   scale(1);   opacity: 0; }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.3; }
+  100% { transform: translateY(-110vh) scale(0.7); opacity: 0; }
+}
+
+/* ── Hero Content ── */
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 900px;
+}
+
+.tagline {
+  font-family: var(--font-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.headlineLine1 {
+  font-family: var(--font-primary);
+  font-size: clamp(2.2rem, 7vw, 5.5rem);
+  font-weight: 900;
+  color: white;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.headlineLine2 {
+  font-family: var(--font-primary);
+  font-size: clamp(1.8rem, 6vw, 4.5rem);
+  font-weight: 900;
+  font-style: italic;
+  color: #4fc3f7;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  text-shadow: 0 4px 32px rgba(79, 195, 247, 0.4);
+  animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── CTA Button ── */
+.ctaBtn {
+  display: inline-block;
+  background: linear-gradient(135deg, #1e5a8e 0%, #2980b9 100%);
+  color: white;
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 14px 40px;
+  border-radius: 32px;
+  border: 1.5px solid rgba(79, 195, 247, 0.4);
+  transition: all 0.3s ease;
+  box-shadow:
+    0 8px 24px rgba(30, 90, 142, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ctaBtn:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+  box-shadow:
+    0 12px 32px rgba(52, 152, 219, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transform: translateY(-3px);
+}
+
+.ctaBtn:active {
+  transform: translateY(-1px);
+}
+
+/* ── Ticker Strip ── */
+.ticker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  background: linear-gradient(90deg, #1a3a5c, #1e5a8e, #1a3a5c);
+  overflow: hidden;
+  padding: 10px 0;
+  border-top: 1px solid rgba(79, 195, 247, 0.2);
+}
+
+.tickerTrack {
+  display: flex;
+  width: max-content;
+  animation: ticker 20s linear infinite;
+}
+
+.tickerItem {
+  font-family: var(--font-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0 0.5rem;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .headlineLine1 {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+  .headlineLine2 {
+    font-size: clamp(1.6rem, 8vw, 2.8rem);
+  }
+}
