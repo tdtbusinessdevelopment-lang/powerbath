@@ -1,0 +1,114 @@
+/* --------------- HEADER STYLES --------------- */
+.main-header {
+    height: 80px;
+    background-color: #1974B6;
+    /* Solid bright blue */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    position: relative;
+    z-index: 50;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.header-left {
+    display: flex;
+    gap: 40px;
+    flex: 1;
+    align-items: center;
+}
+
+.header-left a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: opacity 0.2s, text-decoration 0.2s;
+    position: relative;
+}
+
+.header-left a:hover {
+    opacity: 0.8;
+}
+
+.header-left a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FFFFFF;
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-self: stretch;
+    /* Takes full height of the header */
+}
+
+/* White background that extends downwards for the logo */
+.logo-container {
+    background-color: #FFFFFF;
+    padding: 25px 90px 30px 90px;
+    border-radius: 0 0 25px 25px;
+    position: absolute;
+    top: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+}
+
+.logo-container .logo {
+    height: 65px;
+    object-fit: contain;
+}
+
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    flex: 1;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.icon-button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+.login-button {
+    background-color: #FFFFFF;
+    color: #1974B6;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-button:hover {
+    background-color: #f4f4f4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

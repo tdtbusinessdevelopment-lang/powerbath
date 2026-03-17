@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/header';
-import '../styles/landingpage.css';
+import '../styles/header.css';
 import landingpageBg from '../assets/images/landingpagebg.png';
 
 export default function LandingPage() {
@@ -35,6 +35,12 @@ export default function LandingPage() {
                         <span>THE ULTIMATE COLD BATH THERAPY</span>
                     </div>
                 </div>
+            </div>
+
+            {/* DIV 2 */}
+            <div className="div2">
+                <h2>Shop Now</h2>
+                <p>Discover our collection of cold bath therapy products.</p>
             </div>
 
         </div>

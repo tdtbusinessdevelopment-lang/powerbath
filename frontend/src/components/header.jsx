@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className="main-header">
       <div className="header-left">
-        <a href="#home" style={{textDecoration: 'underline'}}>Home</a>
+        <a href="#home" className="active">Home</a>
         <a href="#products">Products</a>
         <a href="#contact">Contact Us</a>
       </div>
