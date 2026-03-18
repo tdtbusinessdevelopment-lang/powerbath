@@ -15,6 +15,7 @@ html {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 /* --------------- DIV 1 STYLES --------------- */
@@ -126,7 +127,7 @@ html {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #1974B6;
+    background-color: #0A73B0;
     padding: 18px 0;
     z-index: 10;
     overflow: hidden;
@@ -168,3 +169,480 @@ html {
     padding: 0 !important;
     text-align: left !important;
 }
+
+/* --------------- DIV 2 STYLES --------------- */
+.div2 {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+    box-sizing: border-box;
+}
+
+/* Bubbles */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #E6F4FF, #A1DDFE 60%, #85CFFE);
+    opacity: 0.6;
+    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.5), 5px 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.top-left-large {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    left: -50px;
+}
+
+.top-left-small {
+    width: 50px;
+    height: 50px;
+    top: 80px;
+    left: 120px;
+}
+
+.bottom-right-large {
+    width: 250px;
+    height: 250px;
+    bottom: -80px;
+    right: -80px;
+}
+
+.bottom-right-small {
+    width: 60px;
+    height: 60px;
+    bottom: 120px;
+    right: 30px;
+}
+
+/* Section Title */
+.section-title {
+    color: #11689B;
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 60px;
+    font-family: 'Fredoka One', Impact, sans-serif;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+/* Featured Cards Container */
+.featured-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Individual Card */
+.featured-card {
+    width: 350px;
+    height: 480px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Top (Blue Image Area) */
+.featured-card-top {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.featured-card-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.2));
+}
+
+/* Card Bottom (White Button Area) */
+.featured-card-bottom {
+    flex: 1;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Card Button */
+.featured-card-btn {
+    background-color: #0E71AD;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 35px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.featured-card-btn:hover {
+    background-color: #0c6194;
+    transform: scale(1.05);
+}
+
+/* --------------- DIV 3 STYLES --------------- */
+.div3 {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    padding: 60px 0;
+    box-sizing: border-box;
+}
+
+.div3-left {
+    flex: 0 0 35%;
+    height: 600px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+.div3-model-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center; /* ensures the model stays visible and left gets cropped */
+    transform: scale(1.1); /* slightly zoom in to emphasize the cropped effect */
+    transform-origin: right center;
+}
+
+.div3-right {
+    flex: 0 0 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 60px 0 40px;
+    box-sizing: border-box;
+}
+
+.div3-title {
+    color: #11689B;
+    font-size: 52px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.features-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+}
+
+.feature-card {
+    background-color: #1271B0;
+    border-radius: 16px;
+    padding: 40px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    max-width: 220px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(18, 113, 176, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(18, 113, 176, 0.3);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 25px;
+}
+
+.feature-text {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --------------- DIV 4 STYLES --------------- */
+.div4 {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 80px 40px;
+    box-sizing: border-box;
+    gap: 40px;
+}
+
+.div4-left {
+    flex: 0 0 60%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+}
+
+.div4-title {
+    color: #11689B;
+    font-size: 48px;
+    font-weight: 900;
+    margin: 0 0 20px 0;
+    font-family: 'Fredoka One', Impact, sans-serif;
+    letter-spacing: 1px;
+}
+
+.div4-subtitle {
+    color: #11689B;
+    font-size: 32px;
+    font-weight: 800;
+    margin: 40px 0 20px 0;
+    font-family: 'Fredoka One', Impact, sans-serif;
+    letter-spacing: 1px;
+}
+
+.div4-small-title {
+    color: #11689B;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 40px 0 10px 0;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+}
+
+.div4-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333333;
+    margin: 0;
+}
+
+.bold-blue {
+    color: #11689B;
+    font-weight: 700;
+}
+
+.div4-subtext {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333333;
+    margin: 0 0 20px 0;
+}
+
+.div4-images {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.div4-img {
+    flex: 1;
+    width: 32%;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.div4-right {
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.promo-btn {
+    background-color: #11689B;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    padding: 15px 30px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 15px rgba(17, 104, 155, 0.3);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.promo-btn:hover {
+    transform: translateY(-3px);
+    background-color: #0e5682;
+}
+
+/* Phone Mockup Styling */
+.phone-mockup {
+    position: relative;
+    width: 300px;
+    height: 600px;
+    background-color: #11689B; /* Phone body color */
+    border-radius: 40px;
+    padding: 12px; /* Bezel size */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone-screen.bg-placeholder {
+    /* Subtle background to mimic the eye video roughly if possible, but dark grey works fine */
+    background: radial-gradient(circle at center, #333 0%, #111 100%);
+}
+
+.phone-notch {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 25px;
+    background-color: #11689B;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 10;
+}
+
+.phone-buttons {
+    position: absolute;
+    background-color: #0e5682;
+    width: 4px;
+    border-radius: 2px;
+}
+
+.phone-buttons.left-top {
+    top: 100px;
+    left: -4px;
+    height: 40px;
+}
+
+.phone-buttons.left-bottom {
+    top: 150px;
+    left: -4px;
+    height: 40px;
+}
+
+.phone-buttons.right {
+    top: 120px;
+    right: -4px;
+    height: 60px;
+}
+
+.play-button-overlay {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.play-button-overlay:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.play-triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 25px;
+    border-color: transparent transparent transparent #11689B;
+    margin-left: 8px; /* Offset to center triangle visually */
+}
+
+/* --------------- SCROLL ANIMATIONS --------------- */
+.reveal-on-scroll {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fade-in-up {
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-up.is-visible {
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-left.is-visible {
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    transform: translateX(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-right.is-visible {
+    transform: translateX(0);
+}
+
+.zoom-in-scale {
+    transform: scale(0.9);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.zoom-in-scale.is-visible {
+    transform: scale(1);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
