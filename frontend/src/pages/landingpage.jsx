@@ -56,10 +56,10 @@ export default function LandingPage() {
             <div className="div1" style={{ backgroundImage: `url(${landingpageBg})` }}>
                 <div className="div1-overlay"></div>
                 <div className="div1-content">
-                    <h2 className="title-small">THE ULTIMATE COLD BATH THERAPY</h2>
-                    <h1 className="title-large-cloud">REVITALIZE YOUR BODY</h1>
-                    <h1 className="title-large-stencil">RECLAIM ENERGY</h1>
-                    <button className="shop-now-btn">SHOP NOW</button>
+                    <h2 className="title-small reveal-on-scroll fade-in-up">THE ULTIMATE COLD BATH THERAPY</h2>
+                    <h1 className="title-large-cloud reveal-on-scroll fade-in-up delay-100">REVITALIZE YOUR BODY</h1>
+                    <h1 className="title-large-stencil reveal-on-scroll fade-in-up delay-200">RECLAIM ENERGY</h1>
+                    <button className="shop-now-btn reveal-on-scroll zoom-in-scale delay-300">SHOP NOW</button>
                 </div>
 
                 {/* Infinite Carousel */}

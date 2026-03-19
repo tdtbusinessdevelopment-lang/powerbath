@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Search, ShoppingCart } from 'lucide-react';
 import '../styles/landingpage.css';
 import powerbathLogo from '../assets/images/powerbathlogo.png';
@@ -7,8 +8,8 @@ export default function Header() {
   return (
     <header className="main-header">
       <div className="header-left">
-        <a href="#home" className="active">Home</a>
-        <a href="#products">Products</a>
+        <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink>
+        <NavLink to="/products" className={({ isActive }) => (isActive ? 'active' : '')}>Products</NavLink>
         <a href="#contact">Contact Us</a>
       </div>
       <div className="header-center">

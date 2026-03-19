@@ -87,7 +87,7 @@ html {
 }
 
 .title-large-stencil {
-    color: #1B5B7E;
+    color: #ffffff;
     /* blue text */
     font-size: 80px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -96,7 +96,13 @@ html {
     text-transform: uppercase;
     line-height: 1;
     letter-spacing: 1px;
-    /* Dark shadow border like in the reference */
+    text-shadow:
+        3px 3px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000,
+        0px 4px 8px rgba(0, 0, 0, 0.5);
 
 }
 
@@ -330,8 +336,10 @@ html {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: right center; /* ensures the model stays visible and left gets cropped */
-    transform: scale(1.1); /* slightly zoom in to emphasize the cropped effect */
+    object-position: right center;
+    /* ensures the model stays visible and left gets cropped */
+    transform: scale(1.1);
+    /* slightly zoom in to emphasize the cropped effect */
     transform-origin: right center;
 }
 
@@ -510,9 +518,11 @@ html {
     position: relative;
     width: 300px;
     height: 600px;
-    background-color: #11689B; /* Phone body color */
+    background-color: #11689B;
+    /* Phone body color */
     border-radius: 40px;
-    padding: 12px; /* Bezel size */
+    padding: 12px;
+    /* Bezel size */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
 }
@@ -595,7 +605,8 @@ html {
     border-style: solid;
     border-width: 15px 0 15px 25px;
     border-color: transparent transparent transparent #11689B;
-    margin-left: 8px; /* Offset to center triangle visually */
+    margin-left: 8px;
+    /* Offset to center triangle visually */
 }
 
 /* --------------- SCROLL ANIMATIONS --------------- */
@@ -613,6 +624,7 @@ html {
     transform: translateY(40px);
     transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
 .fade-in-up.is-visible {
     transform: translateY(0);
 }
@@ -621,6 +633,7 @@ html {
     transform: translateX(-40px);
     transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
 .fade-in-left.is-visible {
     transform: translateX(0);
 }
@@ -629,6 +642,7 @@ html {
     transform: translateX(40px);
     transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
 .fade-in-right.is-visible {
     transform: translateX(0);
 }
@@ -637,12 +651,27 @@ html {
     transform: scale(0.9);
     transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
 .zoom-in-scale.is-visible {
     transform: scale(1);
 }
 
-.delay-100 { transition-delay: 100ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-400 { transition-delay: 400ms; }
-.delay-500 { transition-delay: 500ms; }
+.delay-100 {
+    transition-delay: 100ms;
+}
+
+.delay-200 {
+    transition-delay: 200ms;
+}
+
+.delay-300 {
+    transition-delay: 300ms;
+}
+
+.delay-400 {
+    transition-delay: 400ms;
+}
+
+.delay-500 {
+    transition-delay: 500ms;
+}
