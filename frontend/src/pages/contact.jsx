@@ -8,6 +8,7 @@ import '../styles/header.css';
 // Images
 import contactd1Img from '../assets/images/contactd1.png';
 import contactd2Img from '../assets/images/contactd2.png';
+import mapImg from '../assets/images/map.png'; // Make sure this image is present
 
 export default function ContactUs() {
     
@@ -98,17 +99,16 @@ export default function ContactUs() {
                             <p className="location-text">
                                 Visit us at our showroom to explore our bath products in person and get personalized assistance from our team. We're easy to find and always happy to help you out.
                             </p>
-                            <div className="map-container">
-                                <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.737402034033!2d121.05052921484501!3d14.556984289830573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c88b0a94e505%3A0x64e26214589574ef!2s11th%20Ave%2C%20Taguig%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1682782782782!5m2!1sen!2sph" 
-                                    width="100%" 
-                                    height="280" 
-                                    style={{ border: 0, borderRadius: '15px' }} 
-                                    allowFullScreen="" 
-                                    loading="lazy" 
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    title="Google Map"
-                                ></iframe>
+                            <div className="map-container" style={{height: '280px', backgroundColor: '#e0e0e0', borderRadius: '15px', overflow: 'hidden'}}>
+                                <img 
+                                    src={mapImg} 
+                                    alt="Map Location" 
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                                    onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        e.target.parentElement.innerHTML = '<div style="display:flex;height:100%;align-items:center;justify-content:center;color:#666;">Please add map.png to assets/images</div>';
+                                    }}
+                                />
                             </div>
                         </div>
 
