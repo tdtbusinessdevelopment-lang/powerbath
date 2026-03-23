@@ -67,27 +67,32 @@
     max-width: 600px;
 }
 
-/* Div 2 - Main Content Layout */
+/* Div 2 - Main Content Layout (3 rows) */
 .contact-div2 {
-    display: flex;
     max-width: 1200px;
-    margin: 80px auto;
-    padding: 0 5%;
-    gap: 60px;
+    margin: 0 auto;
+    padding: 0 5% 80px;
+    background-color: #ffffff;
 }
 
-.contact-left, .contact-right {
+/* ==================== ROW 1: Contact Info + Image ==================== */
+.contact-row1 {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-top: -80px; /* overlap hero slightly with the image */
+    position: relative;
+}
+
+.contact-row1-left {
+    flex: 1;
+    padding-top: 140px; /* push down so contact info starts below the hero overlap */
+}
+
+.contact-row1-right {
     flex: 1;
     display: flex;
-    flex-direction: column;
-}
-
-.contact-left {
-    gap: 60px;
-}
-
-.contact-right {
-    gap: 40px;
+    justify-content: flex-end;
 }
 
 /* Contact Information Section */
@@ -135,12 +140,50 @@
     line-height: 1.4;
 }
 
-/* Get In Touch Section */
+/* Arched Image */
+.arched-img-container {
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    z-index: 20;
+}
+
+.contact-arched-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 250px 250px 0 0; /* Creates the arch */
+    display: block;
+    aspect-ratio: 3/4;
+}
+
+/* ==================== ROW 2: Form + Location/Social ==================== */
+.contact-row2 {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.contact-row2-left {
+    flex: 1;
+}
+
+.contact-row2-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Get In Touch Section - Gradient from Figma */
 .get-in-touch-section {
-    background-color: #36506B; /* Dark blue from design */
-    border-radius: 12px;
+    background: linear-gradient(180deg, #1B5B7E 0%, #689EC2 1%, #498DAD 20%, #1E3747 100%);
+    border: 1px solid #1B5B7E;
+    border-radius: 25px;
     padding: 40px 35px;
     color: white;
+    box-sizing: border-box;
 }
 
 .get-in-touch-heading {
@@ -172,6 +215,7 @@
     font-size: 0.95rem;
     color: #333;
     background-color: white;
+    box-sizing: border-box;
 }
 
 .form-input::placeholder, .form-textarea::placeholder {
@@ -187,7 +231,7 @@
 .form-submit-btn {
     align-self: flex-start;
     background-color: white;
-    color: #36506B;
+    color: #1E3747;
     border: none;
     border-radius: 25px;
     padding: 12px 30px;
@@ -203,31 +247,7 @@
     transform: translateY(-2px);
 }
 
-/* Arched Image */
-.arched-img-container {
-    width: 100%;
-    margin-top: -150px;
-    position: relative;
-    z-index: 20;
-    margin-bottom: 20px;
-}
-
-.contact-arched-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 250px 250px 0 0; /* Creates the arch */
-    display: block;
-    aspect-ratio: 3/4;
-}
-
-/* Our Location & Social Media Wrapper */
-.location-social-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
+/* Our Location & Social Media */
 .location-heading, .social-heading {
     color: #0A73B0;
     font-size: 1.6rem;
@@ -273,12 +293,26 @@
     background-color: #0A73B0;
 }
 
-/* Responsive adjustments */
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 992px) {
-    .contact-div2 {
+    .contact-row1,
+    .contact-row2 {
         flex-direction: column;
     }
-    
+
+    .contact-row1 {
+        margin-top: 0;
+    }
+
+    .contact-row1-left {
+        padding-top: 60px;
+    }
+
+    .arched-img-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
     .contact-arched-img {
         max-width: 500px;
         margin: 0 auto;
@@ -289,20 +323,74 @@
     .contact-title {
         font-size: 3.5rem;
     }
-    
+
     .contact-icons-grid {
         flex-direction: column;
         gap: 20px;
         align-items: flex-start;
     }
-    
+
     .info-item {
         flex-direction: row;
         text-align: left;
         gap: 15px;
     }
-    
+
     .icon-wrapper {
         margin-bottom: 0;
     }
 }
+
+/* ==================== SCROLL ANIMATIONS ==================== */
+.reveal-on-scroll {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fade-in-up {
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fade-in-up.is-visible {
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fade-in-left.is-visible {
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    transform: translateX(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fade-in-right.is-visible {
+    transform: translateX(0);
+}
+
+.zoom-in-scale {
+    transform: scale(0.9);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.zoom-in-scale.is-visible {
+    transform: scale(1);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+

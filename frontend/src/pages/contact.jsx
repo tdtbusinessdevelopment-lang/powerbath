@@ -8,12 +8,41 @@ import '../styles/header.css';
 // Images
 import contactd1Img from '../assets/images/contactd1.png';
 import contactd2Img from '../assets/images/contactd2.png';
+import mapImg from '../assets/images/map.png';
+
 
 export default function ContactUs() {
-    
+
     // Scroll to top on mount
     useEffect(() => {
         window.scrollTo(0, 0);
+    }, []);
+
+    // Scroll-reveal animation observer (same pattern as landing page)
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+
+                    // Remove animation classes after 1.5s so CSS hover effects can take over
+                    setTimeout(() => {
+                        entry.target.classList.remove(
+                            'reveal-on-scroll', 'is-visible',
+                            'fade-in-up', 'fade-in-left', 'fade-in-right', 'zoom-in-scale',
+                            'delay-100', 'delay-200', 'delay-300', 'delay-400', 'delay-500'
+                        );
+                    }, 1500);
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        const elements = document.querySelectorAll('.reveal-on-scroll');
+        elements.forEach(el => observer.observe(el));
+
+        return () => observer.disconnect();
     }, []);
 
     return (
@@ -24,8 +53,8 @@ export default function ContactUs() {
             <div className="contact-div1" style={{ backgroundImage: `url(${contactd1Img})` }}>
                 <div className="contact-div1-overlay"></div>
                 <div className="contact-div1-content">
-                    <h1 className="contact-title">Contact Us</h1>
-                    <p className="contact-subtitle">
+                    <h1 className="contact-title reveal-on-scroll fade-in-up">Contact Us</h1>
+                    <p className="contact-subtitle reveal-on-scroll fade-in-up delay-200">
                         Explore our wide range of high-quality steel products,<br />
                         designed to meet all your construction and industrial<br />
                         needs.
@@ -35,76 +64,77 @@ export default function ContactUs() {
 
             {/* DIV 2 - Content Layout */}
             <div className="contact-div2">
-                <div className="contact-left">
-                    
-                    {/* Contact Information */}
-                    <div className="contact-info-section">
-                        <h2 className="contact-heading">Contact Information</h2>
-                        <p className="contact-info-text">
-                            If you have questions about our products or need help choosing the right bath essentials, we're here to assist you. Reach out anytime and our team will get back to you as soon as possible.
-                        </p>
-                        
-                        <div className="contact-icons-grid">
-                            <div className="info-item">
-                                <div className="icon-wrapper">
-                                    <PhoneCall size={36} color="#0A73B0" strokeWidth={1.5} />
+
+                {/* ROW 1: Contact Information + Arched Image */}
+                <div className="contact-row1">
+                    <div className="contact-row1-left">
+                        <div className="contact-info-section">
+                            <h2 className="contact-heading reveal-on-scroll fade-in-left">Contact Information</h2>
+                            <p className="contact-info-text reveal-on-scroll fade-in-left delay-100">
+                                If you have questions about our products or need help choosing the right bath essentials, we're here to assist you. Reach out anytime and our team will get back to you as soon as possible.
+                            </p>
+
+                            <div className="contact-icons-grid">
+                                <div className="info-item reveal-on-scroll fade-in-up delay-100">
+                                    <div className="icon-wrapper">
+                                        <PhoneCall size={36} color="#0A73B0" strokeWidth={1.5} />
+                                    </div>
+                                    <span className="info-item-text">0917 708 3801</span>
                                 </div>
-                                <span className="info-item-text">0917 708 5501</span>
-                            </div>
-                            <div className="info-item">
-                                <div className="icon-wrapper">
-                                    <Mail size={36} color="#0A73B0" strokeWidth={1.5} />
+                                <div className="info-item reveal-on-scroll fade-in-up delay-200">
+                                    <div className="icon-wrapper">
+                                        <Mail size={36} color="#0A73B0" strokeWidth={1.5} />
+                                    </div>
+                                    <span className="info-item-text">powerbath.ph@gmail.com</span>
                                 </div>
-                                <span className="info-item-text">powerbath.ph@gmail.com</span>
-                            </div>
-                            <div className="info-item">
-                                <div className="icon-wrapper">
-                                    <MapPin size={36} color="#0A73B0" strokeWidth={1.5} />
+                                <div className="info-item reveal-on-scroll fade-in-up delay-300">
+                                    <div className="icon-wrapper">
+                                        <MapPin size={36} color="#0A73B0" strokeWidth={1.5} />
+                                    </div>
+                                    <span className="info-item-text">11th Avenue Bonifacio<br />Global City, Taguig</span>
                                 </div>
-                                <span className="info-item-text">11th Avenue Bonifacio<br/>Global City, Taguig</span>
                             </div>
                         </div>
                     </div>
 
-                    {/* Get In Touch */}
-                    <div className="get-in-touch-section">
-                        <h2 className="get-in-touch-heading">Get In Touch !</h2>
-                        <p className="get-in-touch-subtext">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </p>
-                        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-                            <input type="email" placeholder="Email" className="form-input" required />
-                            <input type="text" placeholder="Name" className="form-input" required />
-                            <textarea placeholder="Message" className="form-textarea" rows="7" required></textarea>
-                            <button type="submit" className="form-submit-btn">SUBMIT</button>
-                        </form>
+                    <div className="contact-row1-right">
+                        <div className="arched-img-container reveal-on-scroll fade-in-right delay-200">
+                            <img src={contactd2Img} alt="Woman relaxing in powerbath" className="contact-arched-img" />
+                        </div>
                     </div>
-
                 </div>
 
-                <div className="contact-right">
-                    
-                    {/* Arched Image */}
-                    <div className="arched-img-container">
-                        <img src={contactd2Img} alt="Woman relaxing in powerbath" className="contact-arched-img" />
+                {/* ROW 2: Get In Touch Form + Location/Social */}
+                <div className="contact-row2">
+                    <div className="contact-row2-left">
+                        <div className="get-in-touch-section reveal-on-scroll fade-in-left">
+                            <h2 className="get-in-touch-heading">Get In Touch !</h2>
+                            <p className="get-in-touch-subtext">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </p>
+                            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+                                <input type="email" placeholder="Email" className="form-input" required />
+                                <input type="text" placeholder="Name" className="form-input" required />
+                                <textarea placeholder="Message" className="form-textarea" rows="7" required></textarea>
+                                <button type="submit" className="form-submit-btn">SUBMIT</button>
+                            </form>
+                        </div>
                     </div>
 
-                    {/* Location and Social Media Wrapper */}
-                    <div className="location-social-wrapper">
-                        
+                    <div className="contact-row2-right">
                         {/* Our Location */}
-                        <div className="our-location-section">
+                        <div className="our-location-section reveal-on-scroll fade-in-right">
                             <h2 className="location-heading">Our Location</h2>
                             <p className="location-text">
                                 Visit us at our showroom to explore our bath products in person and get personalized assistance from our team. We're easy to find and always happy to help you out.
                             </p>
-                            <div className="map-container" style={{height: '280px', backgroundColor: '#e0e0e0', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666', border: '1px dashed #aaa'}}>
-                                <span>Please add map.png to assets/images and update contact.jsx</span>
+                            <div className="map-container" style={{ height: '280px', backgroundColor: '#e0e0e0', borderRadius: '15px', display: 'contain', alignItems: 'center', justifyContent: 'center', color: '#666', border: '1px dashed #aaa', backgroundImage: `url(${mapImg})` }}>
+
                             </div>
                         </div>
 
                         {/* Social Media */}
-                        <div className="social-media-section">
+                        <div className="social-media-section reveal-on-scroll fade-in-up delay-200">
                             <h2 className="social-heading">Social Media</h2>
                             <div className="social-icons">
                                 {/* Facebook */}
@@ -129,9 +159,9 @@ export default function ContactUs() {
                                 </a>
                             </div>
                         </div>
-
                     </div>
                 </div>
+
             </div>
 
             <Footer />
