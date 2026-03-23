@@ -8,7 +8,6 @@ import '../styles/header.css';
 // Images
 import contactd1Img from '../assets/images/contactd1.png';
 import contactd2Img from '../assets/images/contactd2.png';
-import mapImg from '../assets/images/map.png'; // Make sure this image is present
 
 export default function ContactUs() {
     
@@ -99,16 +98,8 @@ export default function ContactUs() {
                             <p className="location-text">
                                 Visit us at our showroom to explore our bath products in person and get personalized assistance from our team. We're easy to find and always happy to help you out.
                             </p>
-                            <div className="map-container" style={{height: '280px', backgroundColor: '#e0e0e0', borderRadius: '15px', overflow: 'hidden'}}>
-                                <img 
-                                    src={mapImg} 
-                                    alt="Map Location" 
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
-                                    onError={(e) => {
-                                        e.target.style.display = 'none';
-                                        e.target.parentElement.innerHTML = '<div style="display:flex;height:100%;align-items:center;justify-content:center;color:#666;">Please add map.png to assets/images</div>';
-                                    }}
-                                />
+                            <div className="map-container" style={{height: '280px', backgroundColor: '#e0e0e0', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666', border: '1px dashed #aaa'}}>
+                                <span>Please add map.png to assets/images and update contact.jsx</span>
                             </div>
                         </div>
 
