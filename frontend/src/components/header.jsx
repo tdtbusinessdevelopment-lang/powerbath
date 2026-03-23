@@ -10,7 +10,7 @@ export default function Header() {
       <div className="header-left">
         <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink>
         <NavLink to="/products" className={({ isActive }) => (isActive ? 'active' : '')}>Products</NavLink>
-        <a href="#contact">Contact Us</a>
+        <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>Contact Us</NavLink>
       </div>
       <div className="header-center">
         <div className="logo-container">
