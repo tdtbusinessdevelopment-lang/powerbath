@@ -11,6 +11,9 @@ import aboutd1Img from '../assets/images/aboutd1.png';
 import uprightImg from '../assets/images/upright.png';
 import lowleftImg from '../assets/images/lowleft.png';
 
+// Div 5 Image
+import d5Img from '../assets/images/d5.png';
+
 export default function AboutUs() {
 
     // Scroll to top on mount
@@ -130,6 +133,40 @@ export default function AboutUs() {
                         <div className="about-div4-item reveal-on-scroll fade-in-up delay-400">
                             <span className="about-div4-icon" aria-hidden="true">&#10003;</span>
                             <span className="about-div4-text">Wi-fi remote controls for total convenience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* DIV 5 - Key Benefits */}
+            <div className="about-div5">
+                <div className="about-div5-inner">
+                    <div className="about-div5-img-container reveal-on-scroll fade-in-left">
+                        <img src={d5Img} alt="Key Benefits" className="about-div5-img" />
+                    </div>
+                    
+                    <div className="about-div5-content reveal-on-scroll fade-in-right delay-200">
+                        <h2 className="about-div5-title">Key Benefits</h2>
+                        <div className="about-div5-list">
+                            {[
+                                "Stimulates blood flow for faster recovery",
+                                "Reduces muscle soreness and inflammation",
+                                "Strengthens the immune system naturally",
+                                "Sharpens focus and mental clarity",
+                                "Increases daily energy levels",
+                                "Helps manage stress and improve sleep quality"
+                            ].map((text, idx) => (
+                                <div className="about-div5-item reveal-on-scroll fade-in-up" style={{transitionDelay: `${idx * 100}ms`}} key={idx}>
+                                    <div className="about-div5-icon">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="22" cy="8" r="5" fill="#0A73B0" />
+                                            <circle cx="10" cy="16" r="6" fill="#0A73B0" />
+                                            <circle cx="22" cy="24" r="4" fill="#0A73B0" />
+                                        </svg>
+                                    </div>
+                                    <span className="about-div5-text">{text}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
